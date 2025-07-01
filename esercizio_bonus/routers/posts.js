@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const posts = require('../data/postsList');
+const postController = require('../controllers/postController');
 
 /* Create CRUD routes */
 
