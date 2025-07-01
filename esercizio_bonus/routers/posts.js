@@ -35,6 +35,12 @@ router.get('/:id', (req, res)=>{
   const id = parseInt(req.params.id);
   console.log(`Here's the post number ${id}`);
   const post = posts.find(post => post.id === id);
+  if (!post){
+    return res.status(404).json({
+      error: "Not Found",
+      message: "Post non trovato"
+    });
+  };
   res.json(post);
 });
 
