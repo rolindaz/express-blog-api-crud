@@ -66,6 +66,12 @@ router.delete('/:id', (req, res)=>{
   const id = parseInt(req.params.id);
   console.log(`Let's delete the post with id: ${id}`);
   const post = posts.find(post => post.id === id);
+  if (!post){
+    return res.status(404).json({
+      error: "Not Found",
+      message: "Post non trovato"
+    });
+  };
   posts.splice(posts.indexOf(post), 1);
   console.log(posts);
   res.sendStatus(204);
