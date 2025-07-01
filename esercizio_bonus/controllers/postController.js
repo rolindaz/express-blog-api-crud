@@ -7,16 +7,13 @@ const posts = require('../data/postsList');
 // Create - Store
 
 function store(req, res) {
-    router.post('/', (req, res)=>{
-        console.log('You can add a new post here');
-        res.send("Let's create a new post!");
-      });
+    console.log('You can add a new post here');
+    res.send("Let's create a new post!");
 };
   
 // Read - Index
 
 function index(req, res) {
-    router.get('/', (req, res)=>{
       console.log("Here's the posts' list");
       // Creo una variabile per la lista di post filtrati, che inizialmente è uguale alla lista originale
       let filteredPosts = posts;
@@ -30,13 +27,11 @@ function index(req, res) {
     
       // Restituiamo la lista filtrata
       res.json(filteredPosts);
-    });
 };
   
 // Read - Show
 
 function show(req, res) {
-    router.get('/:id', (req, res)=>{
       const id = parseInt(req.params.id);
       console.log(`Here's the post number ${id}`);
       const post = posts.find(post => post.id === id);
@@ -47,33 +42,27 @@ function show(req, res) {
         });
       };
       res.json(post);
-    });
 };
   
 // Update - Update
 
 function update(req, res) {
-    router.put('/:id', (req, res)=>{
       const id = req.params.id;
       console.log(`Let's edit the post with id: ${id}`);
       res.send(`Let's edit the post with id: ${id}`);
-    });
 };
   
 // Update - Modify
 
 function modify(req, res) {
-    router.patch('/:id', (req, res)=>{
       const id = req.params.id;
       console.log(`Let's edit something about the post with id: ${id}`);
       res.send(`Let's edit something about the post with id: ${id}`);
-    });
 };
   
 // Delete - Destroy
 
 function destroy(req, res) {
-    router.delete('/:id', (req, res)=>{
       const id = parseInt(req.params.id);
       console.log(`Let's delete the post with id: ${id}`);
       const post = posts.find(post => post.id === id);
@@ -86,7 +75,6 @@ function destroy(req, res) {
       posts.splice(posts.indexOf(post), 1);
       console.log(posts);
       res.sendStatus(204);
-    });
 };
 
 module.exports = {
