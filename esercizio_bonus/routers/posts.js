@@ -15,7 +15,18 @@ router.post('/', (req, res)=>{
 
 router.get('/', (req, res)=>{
   console.log("Here's the posts' list");
-  res.json(posts);
+  // Creo una variabile per la lista di post filtrati, che inizialmente è uguale alla lista originale
+  let filteredPosts = posts;
+
+  // Se c'è un filtro nella richiesta, filtriamo la lista di post
+  if (req.query.tag) {
+    filteredPosts = posts.filter(
+      post => post.tags.includes(req.query.tag)
+    );
+  };
+
+  // Restituiamo la lista filtrata
+  res.json(filteredPosts);
 });
 
 // Read - Show
