@@ -14,7 +14,7 @@ function store(req, res) {
 // Read - Index
 
 function index(req, res) {
-      console.log("Here's the posts' list");
+      console.log("Here's the posts list");
       // Creo una variabile per la lista di post filtrati, che inizialmente è uguale alla lista originale
       let filteredPosts = posts;
     
@@ -23,6 +23,8 @@ function index(req, res) {
         filteredPosts = posts.filter(
           post => post.tags.includes(req.query.tag)
         );
+        console.log("Here's the filtered posts list");
+        
       };
     
       // Restituiamo la lista filtrata
