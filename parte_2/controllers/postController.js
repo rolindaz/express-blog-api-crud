@@ -71,9 +71,35 @@ function show(req, res) {
 // Update - Update
 
 function update(req, res) {
-      const id = req.params.id;
-      console.log(`Let's edit the post with id: ${id}`);
-      res.send(`Let's edit the post with id: ${id}`);
+  
+  // recupero l'id dell'elemento che voglio modificare
+  const id = posts.find(post => post.id === id);
+  console.log(`Let's edit the post with id: ${id}`);
+  
+  // recupero il post tramite l'id
+  const post = posts.find(post => post.id === id);
+
+  // imposto una condizione per cui, se il parametro si riferisce ad un post inesistente, viene restituito l'errore 404 e relativo messaggio
+  if (!post){
+    res.status(404);
+    return res.json({
+      error: "Not Found",
+      message: "Post non trovato"
+    });
+  };
+
+  // modifico l'oggetto recuperato
+  post.title = req.body.title;
+  post.content = req.body.content;
+  post.image = req.body.image;
+  post.tags = req.body.tags;
+
+  // loggo l'array per verifica
+  console.log(posts);
+
+  // restituisco il post modificato
+  console.log(`Ecco il post modificato: ${post}`);
+  res.json(post);
 };
   
 // Update - Modify
