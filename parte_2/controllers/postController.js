@@ -8,6 +8,7 @@ const posts = require('../data/postsList');
 
 function store(req, res) {
     console.log('You can add a new post here');
+    console.log(req.body);
     res.send("Let's create a new post!");
 };
   

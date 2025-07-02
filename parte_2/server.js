@@ -10,6 +10,10 @@ app.listen(port, ()=>{
     console.log(`Server is running on http://localhost:${port}`);
 });
 
+// Register body-parser for application/json
+
+app.use(express.json());
+
 // Set homepage route
 
 app.get('/', (req, res)=>{
@@ -20,3 +24,4 @@ app.get('/', (req, res)=>{
 // Point the prefixes for the routes with the use method
 
 app.use('/api/posts', postsRouter);
+
