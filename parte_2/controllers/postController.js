@@ -28,8 +28,9 @@ function store(req, res) {
     // loggo per verifica
     console.log(posts);
     
-
-    res.send("Let's create a new post!");
+    // restituisco lo stato corretto (OK) e l'oggetto appena creato
+    res.status(201);
+    res.json(newPost);
 };
   
 // Read - Index
