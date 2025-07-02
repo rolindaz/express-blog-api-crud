@@ -9,6 +9,19 @@ const posts = require('../data/postsList');
 function store(req, res) {
     console.log('You can add a new post here');
     console.log(req.body);
+
+    // creo un nuovo id incrementando l'id dell'ultimo oggetto dell'array
+    const newId = posts[posts.length - 1].id + 1;
+
+    // creo un nuovo oggetto
+    const newPost = {
+      id: newId,
+      title: req.body.title,
+      content: req.body.content,
+      image: req.body.image,
+      tags: req.body.tags
+    };
+
     res.send("Let's create a new post!");
 };
   
