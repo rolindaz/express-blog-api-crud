@@ -25,7 +25,7 @@ function store(req, res) {
     // aggiungo il nuovo oggetto all'array di post
     posts.push(newPost);
 
-    // loggo per verifica
+    // loggo l'array per verifica
     console.log(posts);
     
     // restituisco lo stato corretto (OK) e l'oggetto appena creato
