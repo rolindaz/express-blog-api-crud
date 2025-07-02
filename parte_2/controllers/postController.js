@@ -22,6 +22,13 @@ function store(req, res) {
       tags: req.body.tags
     };
 
+    // aggiungo il nuovo oggetto all'array di post
+    posts.push(newPost);
+
+    // loggo per verifica
+    console.log(posts);
+    
+
     res.send("Let's create a new post!");
 };
   
