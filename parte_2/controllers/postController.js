@@ -71,9 +71,9 @@ function show(req, res) {
 // Update - Update
 
 function update(req, res) {
-  
+
   // recupero l'id dell'elemento che voglio modificare
-  const id = posts.find(post => post.id === id);
+  const id = parseInt(req.params.id);
   console.log(`Let's edit the post with id: ${id}`);
   
   // recupero il post tramite l'id
@@ -98,7 +98,7 @@ function update(req, res) {
   console.log(posts);
 
   // restituisco il post modificato
-  console.log(`Ecco il post modificato: ${post}`);
+  console.log(`Il post con id ${id} è stato modificato`);
   res.json(post);
 };
   
