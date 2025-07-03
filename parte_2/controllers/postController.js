@@ -2,6 +2,8 @@
 
 const posts = require('../data/postsList');
 
+
+
 // Create functions for each route
 
 // Create - Store

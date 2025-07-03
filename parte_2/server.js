@@ -3,6 +3,7 @@ const port = process.env.port;
 const postsRouter = require('./routers/posts');
 const notFound = require('./middlewares/notFound');
 const errorsHandler = require('./middlewares/errorsHandler');
+const testMiddleware = require('./middlewares/testMiddleware');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.listen(port, ()=>{
 // Register body-parser for application/json
 
 app.use(express.json());
+app.use(testMiddleware);
 
 // Set homepage route
 
