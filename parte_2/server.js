@@ -2,6 +2,7 @@ const express = require('express');
 const port = process.env.port;
 const postsRouter = require('./routers/posts');
 const notFound = require('./middlewares/notFound');
+const errorsHandler = require('./middlewares/errorsHandler');
 
 const app = express();
 
@@ -28,5 +29,5 @@ app.use('/api/posts', postsRouter);
 
 // Set the middleware to handle problematic contexts
 
+app.use(errorsHandler);
 app.use(notFound);
-
