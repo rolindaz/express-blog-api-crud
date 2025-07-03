@@ -1,6 +1,7 @@
 const express = require('express');
 const port = process.env.port;
 const postsRouter = require('./routers/posts');
+const notFound = require('./middlewares/notFound');
 
 const app = express();
 
@@ -24,4 +25,8 @@ app.get('/', (req, res)=>{
 // Point the prefixes for the routes with the use method
 
 app.use('/api/posts', postsRouter);
+
+// Set the middleware to handle problematic contexts
+
+app.use(notFound);
 
